@@ -39,6 +39,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('profile')
                 ->namespace('App\Http\Controllers')
                 ->group(base_path('routes/web/profile.php'));
+
+            Route::middleware(['web', 'auth', 'verified'])
+                ->prefix('admin')
+                ->namespace('App\Http\Controllers\Admin')
+                ->group(base_path('routes/web/admin.php'));
         });
     }
 

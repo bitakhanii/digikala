@@ -178,7 +178,6 @@
 
     #header-right-top * {
         float: right;
-        font-size: 10pt;
     }
 
     #header-right-top .login-icon, .register-icon {
@@ -220,16 +219,20 @@
         color: #808390;
     }
 
-    #header-right-top .logged-in, #header-right-top .logout {
+    #header-right-top .logged-in, #header-right-top .logout, .admin-entry {
         cursor: pointer;
         padding: 6px 12px;
-        background-color: #86a490;
+        background-color: #3dad5e;
         border-radius: 3px;
         margin-left: 15px;
     }
 
     #header-right-top .logout {
-        background-color: #d1bebe;
+        background-color: #ee655e;
+    }
+
+    #header-right-top .admin-entry {
+        background-color: #7d48e8;
     }
 
     #header-right-top .logout form {
@@ -242,9 +245,9 @@
         margin-left: 10px;
     }
 
-    #header-right-top .logged-in span, #header-right-top .logout span {
+    #header-right-top .logged-in span, #header-right-top .logout span , .admin-entry span {
         color: #fff;
-        font-family: yekan-bold;
+        font-family: yekan-exbold;
         font-size: 8pt;
     }
 
@@ -561,7 +564,7 @@
                     <div class="logged-in">
                         <a href="{{ route('profile') }}">
                             <i class="fa-solid fa-user"></i>
-                            <span>مشاهده ی پروفایل</span>
+                            <span>پروفایل</span>
                         </a>
                     </div>
 
@@ -570,6 +573,12 @@
                             @csrf
                             <span onclick="$('#logout').submit();">خروج از حساب کاربری</span>
                         </form>
+                    </div>
+
+                    <div class="admin-entry">
+                        <a href="{{ route('admin') }}">
+                            <span>پنل مدیریت</span>
+                        </a>
                     </div>
 
                 @endif
