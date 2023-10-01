@@ -1,0 +1,180 @@
+@font-face {
+    font-family: yekan-thin;
+
+    src: url("/fonts/iranyekan/thin/iranyekanwebthin.svg") format("svg"),
+    url("/fonts/iranyekan/thin/IRANYekanWebThin.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/thin/IRANYekanWebThin.ttf") format("truetype"),
+    url("/fonts/iranyekan/thin/IRANYekanWebThin.woff") format("woff"),
+    url("/fonts/iranyekan/thin/IRANYekanWebThin.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-light;
+
+    src: url("/fonts/iranyekan/light/iranyekanweblight.svg") format("svg"),
+    url("/fonts/iranyekan/light/IRANYekanWebLight.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/light/IRANYekanWebLight.ttf") format("truetype"),
+    url("/fonts/iranyekan/light/IRANYekanWebLight.woff") format("woff"),
+    url("/fonts/iranyekan/light/IRANYekanWebLight.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-regular;
+
+    src: url("/fonts/iranyekan/regular/IRANYekanWebRegular.svg") format("svg"),
+    url("/fonts/iranyekan/regular/IRANYekanWebRegular.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/regular/IRANYekanWebRegular.ttf") format("truetype"),
+    url("/fonts/iranyekan/regular/IRANYekanWebRegular.woff") format("woff"),
+    url("/fonts/iranyekan/regular/IRANYekanWebRegular.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-medium;
+
+    src: url("/fonts/iranyekan/medium/iranyekanwebmedium.svg") format("svg"),
+    url("/fonts/iranyekan/medium/IRANYekanWebMedium.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/medium/IRANYekanWebMedium.ttf") format("truetype"),
+    url("/fonts/iranyekan/medium/IRANYekanWebMedium.woff") format("woff"),
+    url("/fonts/iranyekan/medium/IRANYekanWebMedium.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-bold;
+
+    src: url("/fonts/iranyekan/bold/iranyekanwebbold.svg") format("svg"),
+    url("/fonts/iranyekan/bold/IRANYekanWebBold.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/bold/IRANYekanWebBold.ttf") format("truetype"),
+    url("/fonts/iranyekan/bold/IRANYekanWebBold.woff") format("woff"),
+    url("/fonts/iranyekan/bold/IRANYekanWebBold.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-exbold;
+
+    src: url("/fonts/iranyekan/extrabold/iranyekanwebextrabold.svg") format("svg"),
+    url("/fonts/iranyekan/extrabold/IRANYekanWebExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/extrabold/IRANYekanWebExtraBold.ttf") format("truetype"),
+    url("/fonts/iranyekan/extrabold/IRANYekanWebExtraBold.woff") format("woff"),
+    url("/fonts/iranyekan/extrabold/IRANYekanWebExtraBold.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-black;
+
+    src: url("/fonts/iranyekan/black/iranyekanwebblack.svg") format("svg"),
+    url("/fonts/iranyekan/black/IRANYekanWebBlack.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/black/IRANYekanWebBlack.ttf") format("truetype"),
+    url("/fonts/iranyekan/black/IRANYekanWebBlack.woff") format("woff"),
+    url("/fonts/iranyekan/black/IRANYekanWebBlack.woff2") format("woff");
+}
+
+@font-face {
+    font-family: yekan-exblack;
+
+    src: url("/fonts/iranyekan/extrablack/iranyekanwebextrablack.svg") format("svg"),
+    url("/fonts/iranyekan/extrablack/IRANYekanWebExtraBlack.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/iranyekan/extrablack/IRANYekanWebExtraBlack.ttf") format("truetype"),
+    url("/fonts/iranyekan/extrablack/IRANYekanWebExtraBlack.woff") format("woff"),
+    url("/fonts/iranyekan/extrablack/IRANYekanWebExtraBlack.woff2") format("woff");
+}
+
+* {
+    text-align: right;
+    font-family: yekan-bold;
+    direction: rtl;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    border: none;
+}
+
+input, textarea {
+    outline: unset;
+}
+
+.bxshad04 {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .04);
+    -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, .04);
+    -moz-box-shadow: 0 2px 2px rgba(0, 0, 0, .04);
+    -o-box-shadow: 0 2px 2px rgba(0, 0, 0, .04);
+}
+
+.blue-btn, .red-btn, .purple-btn, .gray-btn {
+    padding: 10px 20px;
+    float: left;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .15);
+    cursor: pointer;
+    font-size: 9.5pt;
+    font-family: yekan-bold;
+}
+
+.blue-btn {
+    background-color: #208de6;
+}
+
+.red-btn {
+    background-color: #ee0d27;
+}
+
+.purple-btn {
+    background-color: #97056f;
+}
+
+.gray-btn {
+    background-color: #9f9f9f;
+}
+
+.check-box {
+    width: 16px;
+    height: 16px;
+    display: block;
+    background: url(/images/slices.png) -383px -191px;
+    position: absolute;
+    top: 8px;
+    right: 3px;
+    float: right;
+}
+
+.checked {
+    background: url(/images/slices.png) -383px -219px !important;
+}
+
+.left {
+    text-align: left;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+.error {
+    color: rgb(220 38 38);
+    font-size: 9pt;
+}
+
+.is-invalid {
+    border: 1px solid rgb(220 38 38) !important;
+}
+
+.google-button {
+    width: 200px;
+    margin: 15px auto 0 auto;
+    cursor: pointer;
+}
+

@@ -1,0 +1,13 @@
+{
+    "name": "Discount",
+    "alias": "discount",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Discount\\Providers\\DiscountServiceProvider"
+    ],
+    "files": [
+        "Http/helpers.php"
+    ]
+}
