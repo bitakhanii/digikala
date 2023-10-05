@@ -357,7 +357,7 @@
         display: inline-block;
     }
 
-    nav {
+    .nav-menu {
         width: 100%;
         height: 40px;
         background: #{{ getSetting('nav-color') }};
@@ -576,7 +576,7 @@
                     </div>
 
                     <div class="admin-entry">
-                        <a href="{{ route('admin') }}">
+                        <a href="{{ route('admin.index') }}">
                             <span>پنل مدیریت</span>
                         </a>
                     </div>
@@ -619,7 +619,7 @@
 
 </header>
 
-<nav>
+<nav class="nav-menu">
 
     <div id="menu">
 

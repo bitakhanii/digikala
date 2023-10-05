@@ -9,7 +9,6 @@ class TestController extends Controller
 {
     public function index()
     {
-        dd('fdf');
-        return view('admin.content');
+        //
     }
 }

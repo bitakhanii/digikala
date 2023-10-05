@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\TestController;
+use App\Http\Controllers\Admin\IndexController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [TestController::class, 'index'])->name('admin');
+Route::get('/', [IndexController::class, 'index'])->name('index');
