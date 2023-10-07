@@ -14,7 +14,11 @@ class AddressController extends Controller
      */
     public function index(): View
     {
-        $selectedAddress = session()->has('order.addressID') ? session()->get('order.addressID') : auth()->user()->addresses()->orderBy('id', 'desc')->first()->id;
+        if (auth()->user()->addresses()->exists()) {
+            $selectedAddress = session()->has('order.addressID') ? session()->get('order.addressID') : auth()->user()->addresses()->orderBy('id', 'desc')->first()->id;
+        } else {
+            $selectedAddress = null;
+        }
 
         $addresses = auth()->user()->addresses()->latest()->get();
 

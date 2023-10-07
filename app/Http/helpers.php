@@ -1,9 +1,9 @@
 <?php
 
 use App\Models\CategoryProperty;
-use App\Models\Comment;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 if (!function_exists('engToPersian')) {
 
@@ -160,7 +160,8 @@ if (!function_exists('floorPrice')) {
 }
 
 if (!function_exists('commentScores')) {
-    function commentScores($commentID) {
+    function commentScores($commentID)
+    {
         $commentScores = DB::table('product_scores')->where('comment_id', $commentID)->get();
         foreach ($commentScores as $score) {
             $score->title = CategoryProperty::query()->find($score->property_id)->title;
@@ -170,8 +171,9 @@ if (!function_exists('commentScores')) {
     }
 }
 
-if (! function_exists('commentUserReaction')) {
-    function commentUserReaction($comment, $type) {
+if (!function_exists('commentUserReaction')) {
+    function commentUserReaction($comment, $type)
+    {
         $reactions = $comment->usersReaction()->where('type', $type)->pluck('id');
         $userID = auth()->user()->id;
         if ($reactions->contains($userID)) {
@@ -181,6 +183,18 @@ if (! function_exists('commentUserReaction')) {
         }
 
         return $userReaction;
+    }
+}
+
+if (!function_exists('makeActive')) {
+    function makeActive($routeName, $className = 'active')
+    {
+        $routeName = 'admin.' . $routeName;
+        if (is_array($routeName)) {
+            return in_array(Route::currentRouteName(), $routeName) ? $className : '';
+        }
+
+        return Route::currentRouteName() == $routeName ? $className : '';
     }
 }
 

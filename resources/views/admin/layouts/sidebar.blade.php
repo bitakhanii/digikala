@@ -1,55 +1,48 @@
 <style>
 
     #sidebar {
-        width: 18%;
+        width: 16%;
         border-left: 1px solid #e8e8e8;
         float: right;
     }
 
     #sidebar ul {
-        padding: 0;
+        padding: 10px;
         margin: 0;
+        background-color: #343a40;
     }
 
     #sidebar li a {
-        font-size: 11pt;
-        color: #333333;
         display: block;
         cursor: pointer;
-        padding: 15px 30px 15px 20px;
-        border-bottom: 2px dashed #e8d4de;
+        padding: 0 30px 10px 20px;
+        font-size: 10.5pt;
+        color: #fff;
+        margin-bottom: 10px;
     }
 
-    #sidebar li a.active {
-        color: #ce0201 !important;
+    #sidebar ul i {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        position: relative;
+        top: 10px;
+        margin-left: 5px;
     }
 
-    #sidebar li:nth-child(even) a {
-        background-color: #f8e8ec;
+    #sidebar ul p {
+        margin: 0;
+        display: inline-block;
     }
 
-    #sidebar li:nth-child(odd) a {
-        background-color: #f0f2ff;
-    }
-
-    #sidebar li:last-child a {
+    #sidebar li:last-child {
         margin: 0;
         border-bottom: none;
     }
 
-    #main {
-        width: 100%;
-        background-color: #fff;
-        margin: 10px auto;
-        box-shadow: 0 2px 3px rgba(0, 0, 0, .08);
+    #sidebar li.active a {
         border-radius: 3px;
-        overflow: hidden;
-    }
-
-    #main::after {
-        content: "";
-        display: block;
-        clear: both;
+        background-color: #c80083;
     }
 
 </style>
@@ -61,43 +54,41 @@
 /*        $userLevel = Model::userLevel();
         if ($userLevel == 1) {
             */?>
-        <li>
-            <a href="admindashboard/index" class="">
-                داشبورد
+        <li class="{{ makeActive('index') }}">
+            <a href="{{ route('admin.index') }}">
+                <i style="background: url('/images/dashboard.png')"></i>
+                <p>داشبورد</p>
             </a>
         </li>
         <?php /*} */?>
         <li>
-            <a href="admincategory/index" class="<?php /*if ($activeMenu == 'category') {
-                    echo 'active';
-                } */?>">
-                مدیریت دسته ها
+            <a href="">
+                <i style="background: url('/images/users.png')"></i>
+                <p>اعضا</p>
             </a>
         </li>
         <li>
-            <a href="adminproduct/index" class="">
-                مدیریت محصولات
+            <a href="">
+                <i style="background: url('/images/products.png')"></i>
+                <p>محصولات</p>
             </a>
         </li>
         <li>
-            <a href="adminorder/index" class="">
-                مدیریت سفارشات
+            <a href="">
+                <i style="background: url('/images/orders.png')"></i>
+                <p>سفارشات</p>
             </a>
         </li>
         <li>
-            <a href="admincomment/index" class="">
-                نظرات و نقدهای کاربران
+            <a href="">
+                <i style="background: url('/images/comments.png')"></i>
+                <p>نظرات و نقدها</p>
             </a>
         </li>
         <li>
-            <a href="adminslider/index" class="">
-                مدیریت اسلایدر
-            </a>
-        </li>
-
-        <li>
-            <a href="adminuser/index" class="">
-                مدیریت اعضا
+            <a href="">
+                <i style="background: url('/images/categories.png')"></i>
+                <p>دسته ‌بندی‌ها</p>
             </a>
         </li>
 
@@ -107,19 +98,20 @@
             */?>
 
         <li>
-            <a href="adminstat/index" class="">
-                آمار و گزارشات
+            <a href="">
+                <i style="background: url('/images/statictis.png')"></i>
+                <p>آمار و گزارشات</p>
             </a>
         </li>
 
         <li>
-            <a href="adminsetting/index" class="">
-                تنظیمات سایت
+            <a href="">
+                <i style="background: url('/images/settings.png')"></i>
+                <p>تنظیمات سایت</p>
             </a>
         </li>
 
         <?php /*} */ ?>
 
     </ul>
-
 </div>

@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <!-- Font Awesome -->
+    {{--<!-- Font Awesome -->
     <link rel="stylesheet" href="/adminLTE/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -62,14 +62,43 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/adminLTE/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
-    {{--<script src="/adminLTE/js/demo.js"></script>--}}
+    --}}{{--<script src="/adminLTE/js/demo.js"></script>--}}{{--
     <!-- Select2 Plugin -->
     <script src="/adminLTE/select2/select2.full.js"></script>
-    <link href="/adminLTE/select2/select2.css" rel="stylesheet">
+    <link href="/adminLTE/select2/select2.css" rel="stylesheet">--}}
+
+    <style>
+
+        #main {
+            width: 100%;
+            background-color: #fff;
+            margin: 10px auto;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, .08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        #main::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #content {
+            width: 75%;
+            padding: 20px;
+            float: left;
+            border-radius: 3px;
+        }
+
+    </style>
 
     <div id="main">
         @include('admin.layouts.sidebar')
-        {{ $slot }}
+
+        <div id="content">
+            {{ $slot }}
+        </div>
     </div>
 
 @endsection
@@ -77,3 +106,4 @@
 @section('script')
     {{ $script ?? '' }}
 @endsection
+
