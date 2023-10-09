@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    {{--<!-- Font Awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="/adminLTE/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="/adminLTE/css/custom-style.css">
 
     <!-- jQuery -->
-    <script src="/adminLTE/jquery/jquery.min.js"></script>
+    {{--<script src="/adminLTE/jquery/jquery.min.js"></script>--}}
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -62,10 +62,10 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/adminLTE/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
-    --}}{{--<script src="/adminLTE/js/demo.js"></script>--}}{{--
+    {{--<script src="/adminLTE/js/demo.js"></script>--}}
     <!-- Select2 Plugin -->
     <script src="/adminLTE/select2/select2.full.js"></script>
-    <link href="/adminLTE/select2/select2.css" rel="stylesheet">--}}
+    <link href="/adminLTE/select2/select2.css" rel="stylesheet">
 
     <style>
 
@@ -87,8 +87,9 @@
         #content {
             width: 75%;
             padding: 20px;
-            float: left;
+            float: right;
             border-radius: 3px;
+            margin-right: 3%;
         }
 
     </style>

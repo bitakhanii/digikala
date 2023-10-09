@@ -28,66 +28,8 @@ class TestController extends Controller
 {
     public function index()
     {
-        /*$dates = [];
-        for ($i = 6; $i >= 0; $i--) {
-            $date = jdate()->subDays($i);
-            $dates[] = $date->format('Y-m-d');
-        }
-
-        $orders = Order::query()->select('created_at')->get()->pluck('created_at');
-        $orderStat = [];
-
-        foreach ($dates as $date) {
-            $orderStat[$date] = 0;
-        }
-
-        foreach ($orders as $order) {
-            $createdAt = Carbon::parse($order)->format('Y-m-d');
-            if (in_array($createdAt, $dates)) {
-                $orderStat[$createdAt] = $orderStat[$createdAt] + 1;
-            }
-        }
-
-        return [$dates, $orderStat];*/
-
-        $dates = [];
-        $orderStat = [];
-        $memberStat = [];
-
-        for ($i = 6; $i >= 0; $i--) {
-            $date = now()->subDays($i)->format('Y-m-d');
-            $dates[] = $date;
-            $orderStat[$date] = 0;
-            $memberStat[$date] = 0;
-        }
-
-        $orders = Order::query()
-            ->whereBetween('created_at', [$dates[0], $dates[count($dates) - 1] . ' 23:59:59'])
-            ->pluck('created_at');
-
-        foreach ($orders as $order) {
-            $createdAt = Carbon::parse($order)->format('Y-m-d');
-            if (isset($orderStat[$createdAt])) {
-                $orderStat[$createdAt]++;
-            } else {
-                $orderStat[$createdAt] = 1;
-            }
-        }
-
-        $members = User::query()
-            ->whereBetween('created_at', [$dates[0], $dates[count($dates) - 1] . ' 23:59:59'])
-            ->pluck('created_at');
-
-        foreach ($members as $member) {
-            $createdAt = Carbon::parse($member)->format('Y-m-d');
-            if (isset($memberStat[$createdAt])) {
-                $memberStat[$createdAt]++;
-            } else {
-                $memberStat[$createdAt] = 1;
-            }
-        }
-
-        return $memberStat;
+        $members = User::query()->latest()->paginate('15', ['id', 'name', 'email', 'email_verified_at', 'created_at']);
+        return $members[0]->created_at;
     }
 
 

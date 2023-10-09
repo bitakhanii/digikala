@@ -54,21 +54,21 @@
 /*        $userLevel = Model::userLevel();
         if ($userLevel == 1) {
             */?>
-        <li class="{{ makeActive('index') }}">
+        <li class="{{ makeActive('admin.index') }}">
             <a href="{{ route('admin.index') }}">
                 <i style="background: url('/images/dashboard.png')"></i>
                 <p>داشبورد</p>
             </a>
         </li>
         <?php /*} */?>
-        <li>
-            <a href="">
+        <li class="{{ makeActive('admin.user') }}">
+            <a href="{{ route('admin.user.index') }}">
                 <i style="background: url('/images/users.png')"></i>
                 <p>اعضا</p>
             </a>
         </li>
         <li>
-            <a href="">
+            <a>
                 <i style="background: url('/images/products.png')"></i>
                 <p>محصولات</p>
             </a>

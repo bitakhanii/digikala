@@ -62,8 +62,8 @@ class ProfileController extends Controller
             $twoYearsAgo = $thisYear - 2;
             $data = $request->validate([
                 'email' => ['required', 'regex:/(.+)@(.+)\.(.+)/i',],
-                'first_name' => ['required',],
-                'last_name' => ['nullable',],
+                'first_name' => ['required', 'min:3', 'max:255'],
+                'last_name' => ['nullable', 'min:3', 'max:255'],
                 'mobile' => ['nullable',],
                 'birth_day' => ['required', 'numeric', 'between:1,31',],
                 'birth_month' => ['required', 'numeric', 'between:1,12',],

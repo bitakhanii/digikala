@@ -225,5 +225,6 @@ return [
         'negative.*' => 'نقطه قوت',
         'comment' => 'متن نظر',
         'question' => 'متن سؤال',
+        'email_verify' => 'وضعیت ایمیل',
     ],
 ];

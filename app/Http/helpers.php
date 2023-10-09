@@ -189,12 +189,15 @@ if (!function_exists('commentUserReaction')) {
 if (!function_exists('makeActive')) {
     function makeActive($routeName, $className = 'active')
     {
-        $routeName = 'admin.' . $routeName;
-        if (is_array($routeName)) {
+        return str_contains(Route::currentRouteName(), $routeName) ? $className : '';
+
+        //$routeName = 'admin.' . $routeName;
+
+        /*if (is_array($routeName)) {
             return in_array(Route::currentRouteName(), $routeName) ? $className : '';
         }
 
-        return Route::currentRouteName() == $routeName ? $className : '';
+        return Route::currentRouteName() == $routeName ? $className : '';*/
     }
 }
 
