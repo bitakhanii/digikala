@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\EditorUploadController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\TestController;
@@ -21,19 +22,11 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('test', [TestController::class, 'index']);
 Route::post('test', [TestController::class, 'store']);
 
 Route::get('index', 'IndexController@index')->name('index');
 Route::get('/', 'IndexController@index')->name('home');
-
-/*Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');*/
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -71,6 +64,8 @@ Route::get('/article/{article}', [IndexController::class, 'getArticle'])->name('
 
 Route::get('/product/{product}', [ProductController::class, 'getProducts'])->name('product');
 Route::post('/product/activeTab/{product}', [ProductController::class, 'activeTab']);
+
+Route::post('/editor/upload', [EditorUploadController::class, 'upload'])->name('editor-upload');
 
 /*Route::get('search', function () {
     $slug = request()->query('slug');

@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckUserIsAdmin;
 use App\Http\Middleware\RedirectIfAddressNotChoose;
 use App\Http\Middleware\RedirectIfAuthenticatedForBuy;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -69,5 +70,6 @@ class Kernel extends HttpKernel
         'guest.cart' => RedirectIfAuthenticatedForBuy::class,
         'empty.cart' => RedirectIfEmptyCart::class,
         'empty.address' => RedirectIfAddressNotChoose::class,
+        'admin' => CheckUserIsAdmin::class,
     ];
 }

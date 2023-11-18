@@ -28,10 +28,14 @@
     <div class="sliderscroll-main">
 
         <ul>
+            @php
+                // TODO put "اتمام موجودی" for products with inventory=0
+            @endphp
             @foreach($bestSellers as $product)
                 <li>
                     <a href="{{ route('product', $product->id) }}">
-                        <img class="scroll-img" src="/images/products/{{ $product->id }}/product-{{ $product->id }}_220.jpg"
+                        <img class="scroll-img"
+                             src="/images/products/{{ $product->id }}/product-{{ $product->id }}_220.jpg"
                              height="130">
 
                         <p class="name">{{ $product->fix_title }}</p>

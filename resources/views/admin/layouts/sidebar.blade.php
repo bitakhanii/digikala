@@ -51,28 +51,33 @@
 
     <ul>
         <?php
-/*        $userLevel = Model::userLevel();
-        if ($userLevel == 1) {
-            */?>
+        /*        $userLevel = Model::userLevel();
+                if ($userLevel == 1) {
+                    */ ?>
         <li class="{{ makeActive('admin.index') }}">
             <a href="{{ route('admin.index') }}">
                 <i style="background: url('/images/dashboard.png')"></i>
                 <p>داشبورد</p>
             </a>
         </li>
-        <?php /*} */?>
-        <li class="{{ makeActive('admin.user') }}">
-            <a href="{{ route('admin.user.index') }}">
-                <i style="background: url('/images/users.png')"></i>
-                <p>اعضا</p>
-            </a>
-        </li>
-        <li>
-            <a>
-                <i style="background: url('/images/products.png')"></i>
-                <p>محصولات</p>
-            </a>
-        </li>
+        <?php /*} */ ?>
+
+        @can('show-users')
+            <li class="{{ makeActive('admin.user') }}">
+                <a href="{{ route('admin.user.index') }}">
+                    <i style="background: url('/images/users.png')"></i>
+                    <p>اعضا</p>
+                </a>
+            </li>
+        @endcan
+        @can('show-products')
+            <li class="{{ makeActive('admin.product') }}">
+                <a href="{{ route('admin.product.index') }}">
+                    <i style="background: url('/images/products.png')"></i>
+                    <p>محصولات</p>
+                </a>
+            </li>
+        @endcan
         <li>
             <a href="">
                 <i style="background: url('/images/orders.png')"></i>
@@ -92,10 +97,10 @@
             </a>
         </li>
 
-        <?php
-/*        $userLevel = Model::userLevel();
-        if ($userLevel == 1) {
-            */?>
+            <?php
+            /*        $userLevel = Model::userLevel();
+                    if ($userLevel == 1) {
+                        */ ?>
 
         <li>
             <a href="">
@@ -111,7 +116,7 @@
             </a>
         </li>
 
-        <?php /*} */ ?>
+            <?php /*} */ ?>
 
     </ul>
 </div>

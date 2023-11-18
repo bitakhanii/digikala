@@ -98,6 +98,11 @@ ul {
     box-sizing: unset !important;
 }
 
+.badge {
+    font-family: yekan-exbold !important;
+    font-weight: normal; !important;
+}
+
 /*End By Me*/
 
 .dropdown-item {

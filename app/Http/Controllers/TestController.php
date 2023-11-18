@@ -28,8 +28,7 @@ class TestController extends Controller
 {
     public function index()
     {
-        $members = User::query()->latest()->paginate('15', ['id', 'name', 'email', 'email_verified_at', 'created_at']);
-        return $members[0]->created_at;
+        auth()->loginUsingId(4);
     }
 
 

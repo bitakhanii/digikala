@@ -17,8 +17,14 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-adapter-ckfinder": "^40.0.0",
+        "@ckeditor/ckeditor5-upload": "^40.0.0",
+        "@simonwep/pickr": "^1.9.0",
         "chart.js": "^4.4.0",
+        "cropperjs": "^1.6.1",
         "ion-rangeslider": "^2.3.1",
+        "jquery": "^3.7.1",
+        "jquery-cropper": "^1.0.1",
         "videojs-contrib-quality-levels": "^4.0.0",
         "videojs-hls-quality-selector": "^1.1.4"
     }

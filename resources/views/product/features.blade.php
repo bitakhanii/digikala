@@ -625,6 +625,9 @@
         var data = {'product_id': productID, 'color_id': colorID};
 
         $.post(url, data, function () {
+            var cartCount = {{ \Modules\Cart\Facade\Cart::count() }};
+            $('.shopping-basket').find('.circle').text(cartCount + 1);
+
             Swal.fire({
                 position: 'top-start',
                 icon: 'success',

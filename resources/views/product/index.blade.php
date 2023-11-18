@@ -123,7 +123,7 @@
 
         <div id="content">
 
-            @if($product->is_special)
+            @if($product->special_time > time())
                 @include('product.amazing-offer')
             @endif
 

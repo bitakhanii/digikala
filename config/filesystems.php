@@ -56,6 +56,12 @@ return [
             'throw' => false,
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => public_path('images'),
+            'url' => '',
+        ],
+
     ],
 
     /*
@@ -71,6 +77,15 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+    ],
+
+    'public_files' => [
+
+        'driver' => 'local',
+        'root' => public_path(),
+        'url' => env('APP_URL').'/storage',
+        'visibility' => 'public',
+
     ],
 
 ];

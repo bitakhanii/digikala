@@ -27,4 +27,9 @@ class Brand extends Model
             'en_name' => $this->en_name,
         ];
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

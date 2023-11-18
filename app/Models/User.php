@@ -121,4 +121,24 @@ class User extends Authenticatable implements MustVerifyEmail
     {
       return $this->belongsToMany(Comment::class, 'comment_user_table');
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    public function hasPermission($permission)
+    {
+        return $this->permissions->contains('name', $permission->name);
+    }
 }

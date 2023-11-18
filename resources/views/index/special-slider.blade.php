@@ -208,7 +208,7 @@ $specialProducts = \App\Models\Product::specialProducts();
     #special-slider .flip-clock {
         width: 620px;
         position: absolute;
-        left: 10px;
+        left: 0;
         top: 180px;
         transform: scale(.32);
         z-index: 2;

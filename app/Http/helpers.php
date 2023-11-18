@@ -201,6 +201,22 @@ if (!function_exists('makeActive')) {
     }
 }
 
+if (!function_exists('randomString')) {
+    function randomString($n, $beginningChar = '')
+    {
+        $characters = '0123456789012345678901234567890123456789abcdef';
+        $randomString = '';
+
+        for ($i = 0; $i < $n; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $randomString .= $characters[$index];
+            //OR $randomString = $randomString.$characters[$index];
+        }
+
+        return $beginningChar . $randomString;
+    }
+}
+
 /*if (! function_exists('to_english_numbers')) {
     function to_english_numbers(String $string): String {
         $persinaDigits1 = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];

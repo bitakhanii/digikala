@@ -245,7 +245,7 @@
         margin-left: 10px;
     }
 
-    #header-right-top .logged-in span, #header-right-top .logout span , .admin-entry span {
+    #header-right-top .logged-in span, #header-right-top .logout span, .admin-entry span {
         color: #fff;
         font-family: yekan-exbold;
         font-size: 8pt;
@@ -575,11 +575,13 @@
                         </form>
                     </div>
 
-                    <div class="admin-entry">
-                        <a href="{{ route('admin.index') }}">
-                            <span>پنل مدیریت</span>
-                        </a>
-                    </div>
+                    @if(auth()->user()->is_superuser || auth()->user()->is_staff)
+                        <div class="admin-entry">
+                            <a href="{{ route('admin.index') }}">
+                                <span>پنل مدیریت</span>
+                            </a>
+                        </div>
+                    @endif
 
                 @endif
 

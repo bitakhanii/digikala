@@ -11,6 +11,8 @@ class ProductController extends Controller
 {
     public function getProducts(Product $product)
     {
+        $product->incrementViews();
+
         $product->attributes = $product->attributes()->get()->take(5);
         $activeTab = getSetting('product_active_tab');
 

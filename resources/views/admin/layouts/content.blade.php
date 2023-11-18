@@ -92,6 +92,10 @@
             margin-right: 3%;
         }
 
+        #content * {
+            box-sizing: border-box !important;
+        }
+
     </style>
 
     <div id="main">

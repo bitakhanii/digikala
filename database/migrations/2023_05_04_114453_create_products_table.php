@@ -25,7 +25,6 @@ return new class extends Migration {
             $table->integer('inventory');
             $table->integer('sold')->default(0);
             $table->integer('views')->default(0);
-            $table->boolean('is_special')->default(0);
             $table->bigInteger('special_time')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

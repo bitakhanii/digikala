@@ -49,3 +49,8 @@ function propertySlider(sliderID, score, disable) {
         },
     });
 }
+
+function formatNumber(input) {
+    var num = input.value.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    input.value = num;
+}

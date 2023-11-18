@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Events\ProductViewed;
 use App\Http\Pivots\ProductAttributeValues;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 use Laravel\Scout\Searchable;
 
 class Product extends Model
@@ -15,8 +17,20 @@ class Product extends Model
     use Searchable;
 
     protected $fillable = [
-        'title', 'en_title', 'price', 'discount', 'category_id', 'brand_id', 'guarantee', 'weight', 'introduction', 'image', 'inventory', 'sold', 'views', 'is_special', 'special_time', 'user_id',
+        'title', 'en_title', 'price', 'discount', 'category_id', 'brand_id', 'guarantee', 'weight', 'introduction', 'inventory', 'sold', 'views', 'special_time', 'user_id',
     ];
+
+    /*protected static function booted()
+    {
+        static::retrieved(function ($product) {
+            $product->increment('views');
+        });
+    }*/
+
+    public function incrementViews()
+    {
+        $this->increment('views');
+    }
 
     public function brand()
     {
@@ -30,7 +44,7 @@ class Product extends Model
 
     public static function specialProducts()
     {
-        $products = Product::query()->where('is_special', 1)->orderBy('id', 'desc')->limit(8)->get();
+        $products = Product::query()->where('special_time', '>', time())->orderBy('id', 'desc')->limit(8)->get();
 
         foreach ($products as $product) {
 
@@ -138,7 +152,7 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany(ProductImages::class);
+        return $this->hasMany(ProductImage::class);
     }
 
     public function reviews()
@@ -150,4 +164,12 @@ class Product extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    /*public static function rules($id = null)
+    {
+        return [
+            'title' => ['required', 'min:10', 'max:500', Rule::unique('products')->ignore($id),],
+            // ...
+        ];
+    }*/
 }

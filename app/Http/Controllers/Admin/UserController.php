@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
@@ -11,8 +12,18 @@ use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:show-users')->only('index');
+        $this->middleware('can:create-user')->only(['create', 'store']);
+        //$this->middleware('can:details-user')->only('edit');
+        //$this->middleware('can:edit-user')->only('update');
+        $this->middleware('can:delete-user')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
+     * @throws AuthorizationException
      */
     public function index()
     {
@@ -52,6 +63,7 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('details-user', $user);
         return view('admin.user.create', compact('user'));
     }
 
@@ -60,6 +72,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $this->authorize('details-user', $user);
         $data = $this->userValidate($request, $user);
         $user->update($data);
 
@@ -94,7 +107,7 @@ class UserController extends Controller
                     }
                 }],
             'email' => ['required', 'regex:/(.+)@(.+)\.(.+)/i'],
-            'email_verify' => ['required', Rule::in([0, 1])],
+            'email_verify' => ['nullable', Rule::in([0, 1])],
         ]);
 
         $data['name'] = $data['first_name'] . '-' . $data['last_name'];
@@ -103,14 +116,18 @@ class UserController extends Controller
 
         if ($user) {
             $data['password'] = $user->password;
-            if ($user->email_verified_at && $data['email_verify'] == 1) {
-                $data['email_verified_at'] = $user->email_verified_at;
-            } else {
-                $data['email_verified_at'] = $data['email_verify'] == 1 ? now() : NULL;
+            if (in_array('email_verify', array_keys($data))) {
+                if ($user->email_verified_at && $data['email_verify'] == 1) {
+                    $data['email_verified_at'] = $user->email_verified_at;
+                } else {
+                    $data['email_verified_at'] = $data['email_verify'] == 1 ? now() : NULL;
+                }
             }
         } else {
             $data['password'] = Str::random();
-            $data['email_verified_at'] = $data['email_verify'] == 1 ? now() : NULL;
+            if (in_array('email_verify', array_keys($data))) {
+                $data['email_verified_at'] = $data['email_verify'] == 1 ? now() : NULL;
+            }
         }
 
         unset($data['email_verify'], $data['first_name'], $data['last_name']);

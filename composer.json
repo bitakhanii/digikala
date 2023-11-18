@@ -9,10 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "alexusmai/laravel-file-manager": "^3.0",
         "algolia/algoliasearch-client-php": "^3.4",
         "algolia/scout-extended": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "http-interop/http-factory-guzzle": "^1.2",
+        "intervention/image": "^2.7",
         "laravel/framework": "^10.0",
         "laravel/sanctum": "^3.2",
         "laravel/scout": "^10.2",

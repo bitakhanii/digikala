@@ -13,10 +13,12 @@
                     <h3 class="card-title">جدول کاربران</h3>
 
                     <div class="card-tools d-flex">
-                        <div class="btn-group-sm ml-2">
-                            <a href="{{ route('admin.user.create') }}" class="btn btn-info btn-sm">ایجاد کاربر جدید</a>
-                        </div>
-
+                        @can('create-user')
+                            <div class="btn-group-sm ml-2">
+                                <a href="{{ route('admin.user.create') }}" class="btn btn-info btn-sm">ایجاد کاربر
+                                    جدید</a>
+                            </div>
+                        @endcan
                         <form action="">
                             <div class="input-group input-group-sm" style="width: 250px;">
                                 <input type="text" name="user_search" class="form-control float-right"
@@ -50,7 +52,7 @@
                                         <span class="badge badge-primary">جدید</span>
                                     @endif
                                 </td>
-                                <td>{{ jdate($user->created_at)->format('%Y-%m-%d') }}</td>
+                                <td>{{ jdate($user->created_at)->format('%Y/%m/%d') }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
                                     @if($user->email_verified_at)
@@ -60,7 +62,17 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-sm btn-warning" href="{{ route('admin.user.edit', $user->id) }}">جزئیات و ویرایش</a>
+                                    @can(['edit-user'], $user)
+                                        <a class="btn btn-sm btn-warning"
+                                           href="{{ route('admin.user.edit', $user->id) }}">جزئیات
+                                            و ویرایش</a>
+                                    @elsecan('delete-user')
+                                        <a class="btn btn-sm btn-warning"
+                                           href="{{ route('admin.user.edit', $user->id) }}">جزئیات و حذف</a>
+                                    @elsecan('details-user', $user)
+                                        <a class="btn btn-sm btn-warning"
+                                           href="{{ route('admin.user.edit', $user->id) }}">جزئیات</a>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
@@ -68,7 +80,7 @@
                     </table>
                 </div>
                 <div class="card-footer">
-                    @include('admin.layouts.pagination', ['users' => $users])
+                    @include('admin.layouts.pagination', ['paginated' => $users])
                 </div>
                 <!-- /.card-body -->
             </div>

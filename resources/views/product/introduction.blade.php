@@ -96,7 +96,7 @@
         </p>
 
         <p class="explanation">
-            {{ $product->introduction }}
+            {!! $product->introduction !!}
         </p>
 
     </div>
