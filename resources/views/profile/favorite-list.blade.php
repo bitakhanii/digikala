@@ -214,7 +214,7 @@
         $.post(url, data, function (msg) {
             $.each(msg, function (index, val) {
 
-                var likedItem = '<div class="liked-item"><a href="/product/' + val['product_id'] + '"><span class="image"><img src="/images/products/' + val['product_id'] + '/product-' + val['product_id'] + '.jpg"></span><h4>' + val['product_title'] + '<i class="delete" onclick="deleteFavorite(' + val['id'] + ' , this);"></i><i class="edit"></i></h4><p class="group"></p></a></div>';
+                var likedItem = '<div class="liked-item"><a href="/product/' + val['product_id'] + '"><span class="image"><img src="/images/products/' + val['product_id'] + '/product-' + val['product_id'] + '.jpg"></span></a><h4>' + val['product_title'] + '<i class="delete" onclick="deleteFavorite(' + val['id'] + ' , this);"></i></h4><p class="group"></p></div>';
 
                 $('.items').append(likedItem);
             });

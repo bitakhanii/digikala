@@ -119,7 +119,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function commentReaction()
     {
-      return $this->belongsToMany(Comment::class, 'comment_user_table');
+      return $this->belongsToMany(Comment::class, 'comment_user_reaction');
     }
 
     public function products()

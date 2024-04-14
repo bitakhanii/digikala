@@ -253,9 +253,8 @@
     }
 
     .row-display .details-icon {
+        padding: 0 10px;
         display: block !important;
-        width: 125px;
-        height: 35px;
         background-color: #85a42d;
         position: absolute;
         bottom: 15px;
@@ -265,25 +264,8 @@
         z-index: 2;
     }
 
-    .row-display .details-icon .icon {
-        width: 14px;
-        height: 100%;
-        float: right;
-        border-left: 1px solid #acacac;
-    }
-
-    .row-display .details-icon .icon i {
-        width: 10px;
-        height: 10px;
-        display: block;
-        background: url(/images/slices.png) -196px -81px;
-    }
-
     .row-display .details-icon .text {
-        width: 109px;
-        height: 100%;
         float: left;
-        border-right: 1px solid #7C7C7C;
         color: #fff;
         text-align: center;
         font-size: 8.2pt;

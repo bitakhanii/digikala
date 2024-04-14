@@ -42,7 +42,7 @@ class ProductController extends Controller
 
         $keyword = \request('product_search');
         if ($keyword) {
-            $query = $query->where('title', 'LIKE', "%{$keyword}%")->orWhereHas('category', function ($query) use ($keyword) {
+            $query = $query->where('title', 'LIKE', "%{$keyword}%")->orWhere('en_title', 'LIKE', "%{$keyword}%")->orWhereHas('category', function ($query) use ($keyword) {
                 return $query->where('title', 'LIKE', "%{$keyword}%");
             })->orWhereHas('brand', function ($query) use ($keyword) {
                 return $query->where('name', 'LIKE', "%{$keyword}%");

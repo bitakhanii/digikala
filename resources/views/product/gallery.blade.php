@@ -224,7 +224,7 @@
         <img class="zoom-product" src="/images/products/{{ $product->id }}/product-{{ $product->id }}.jpg"
              data-zoom-image="/images/products/{{ $product->id }}/product-{{ $product->id }}.jpg">
 
-        <ul class="thumbnail">
+        <ul class="thumbnail-ul">
             @if(sizeof($product->images) >= 4)
                 @php
                     $thumbnails = $product->images->slice(0, 4)
@@ -322,7 +322,7 @@
 
     });
 
-    $('.pictures .thumbnail li').click(function () {
+    $('.pictures .thumbnail-ul li').click(function () {
 
         $('#dark-layer').fadeIn(0);
         productGallery.fadeIn(0);

@@ -221,6 +221,7 @@
 
     .irs--square .irs-from, .irs--square .irs-to, .irs--square .irs-single {
         background-color: #d72402 !important;
+        font-size: 10pt;
     }
 
 </style>
@@ -302,7 +303,7 @@
     <div class="horizental-line"></div>
 @endif
 
-<div style="padding: 5px;">
+<div style="padding: 5px 20px;">
     <input type="text" id="price-slider" name="price-slider" value=""/>
 </div>
 
@@ -310,14 +311,14 @@
     <h4>محدوده قیمت</h4>
     <div>
         <span>از</span>
-        <input type="text" id="min-price" value="{{ $minPrice }}" disabled>
+        <input type="text" id="min-price" value="{{ engToPersian(number_format($minPrice)) }}" disabled>
         <input type="hidden" id="min-price-hidden" value="{{ $minPrice }}" disabled>
         <span class="toman">تومان</span>
     </div>
 
     <div>
         <span>تا</span>
-        <input type="text" id="max-price" value="{{ $maxPrice }}" disabled>
+        <input type="text" id="max-price" value="{{ engToPersian(number_format($maxPrice)) }}" disabled>
         <input type="hidden" id="max-price-hidden" value="{{ $maxPrice }}" disabled>
         <span class="toman">تومان</span>
     </div>
@@ -350,7 +351,7 @@
         min: $('#min-price-hidden').val(),
         max: $('#max-price-hidden').val(),
         type: 'double',
-        step: 1000,
+        step: 10000,
         prefix: "تومان",
         prettify_separator: ',',
         prettify_enabled: true,

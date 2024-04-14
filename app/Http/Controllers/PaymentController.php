@@ -52,8 +52,8 @@ class PaymentController extends Controller
             }
 
         } catch (\Exception $e) {
-            alert()->error('خطا!', $e->getMessage());
-            return back();
+            /*alert()->error('خطا!', $e->getMessage());
+            return back();*/
         }
     }
 

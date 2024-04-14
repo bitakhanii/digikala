@@ -10,7 +10,7 @@
     <link href="/css/style.css" rel="stylesheet">
     <script src="/js/methods.js"></script>
     <script src="/js/jquery-3.6.4.min.js"></script>
-    {{--<script src="https://kit.fontawesome.com/0b80c696f5.js" crossorigin="anonymous"></script>--}}
+    <script src="https://kit.fontawesome.com/0b80c696f5.js" crossorigin="anonymous"></script>
     <script src="/inputLan/inputLan.js"></script>
     <script src="/js/toPersianNum/persianumber.min.js"></script>
     <script src="/js/persian.js"></script>
@@ -178,6 +178,7 @@
 
     #header-right-top * {
         float: right;
+        font-size: 10.5pt;
     }
 
     #header-right-top .login-icon, .register-icon {
@@ -239,16 +240,18 @@
         margin: 0;
     }
 
-    #header-right-top .logged-in i {
-        font-size: 11pt;
-        color: #fff;
-        margin-left: 10px;
-    }
-
     #header-right-top .logged-in span, #header-right-top .logout span, .admin-entry span {
         color: #fff;
         font-family: yekan-exbold;
-        font-size: 8pt;
+        font-size: 8pt !important;
+    }
+
+    #header-right-top .logged-in i {
+        background: url('/images/user-16.png');
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
     }
 
     #header-right-bottom {
@@ -563,7 +566,7 @@
 
                     <div class="logged-in">
                         <a href="{{ route('profile') }}">
-                            <i class="fa-solid fa-user"></i>
+                            <i></i>
                             <span>پروفایل</span>
                         </a>
                     </div>

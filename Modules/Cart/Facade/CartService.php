@@ -144,7 +144,7 @@ class CartService
     protected function productInfo(int $id): array
     {
         $product = Product::query()->firstWhere('id', $id);
-        return ['price' => $product->price, 'discount' => $product->discount, 'final_price' => $product->final_price,'title' => $product->title, 'en_title' => $product->en_title, 'image' => $product->image, 'inventory' => $product->inventory];
+        return ['price' => $product->price, 'discount' => $product->discount, 'final_price' => $product->final_price, 'discount_amount' => $product->discount_amount, 'title' => $product->title, 'en_title' => $product->en_title, 'image' => $product->image, 'inventory' => $product->inventory];
     }
 
     /**

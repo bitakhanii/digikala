@@ -174,15 +174,18 @@ if (!function_exists('commentScores')) {
 if (!function_exists('commentUserReaction')) {
     function commentUserReaction($comment, $type)
     {
-        $reactions = $comment->usersReaction()->where('type', $type)->pluck('id');
-        $userID = auth()->user()->id;
-        if ($reactions->contains($userID)) {
-            $userReaction = true;
-        } else {
-            $userReaction = false;
-        }
+        if (auth()->user()) {
 
-        return $userReaction;
+            $reactions = $comment->usersReaction()->where('type', $type)->pluck('id');
+            $userID = auth()->user()->id;
+            if ($reactions->contains($userID)) {
+                $userReaction = true;
+            } else {
+                $userReaction = false;
+            }
+
+            return $userReaction;
+        }
     }
 }
 

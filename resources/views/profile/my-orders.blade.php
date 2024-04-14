@@ -440,7 +440,7 @@
                             </div>
 
                             <ul>
-                                <li class="steps @if($order->status == 'unpaid') half-active @else active @endif">
+                                <li class="steps @if($order->status == 'unpaid' || $order->status == 'canceled') half-active @else active @endif">
                                     <span></span>
                                     <div></div>
                                     <p>
@@ -448,7 +448,7 @@
                                     </p>
                                 </li>
 
-                                <li class="steps @if($order->status == 'processing' || $order->status == 'posted' || $order->status == 'received') active @elseif($order->status == 'paid') half-active @endif">
+                                <li class="steps @if($order->status == 'posted' || $order->status == 'received') active @elseif($order->status == 'processing' || $order->status == 'paid') half-active @endif">
                                     <span></span>
                                     <div></div>
                                     <p>
@@ -456,7 +456,7 @@
                                     </p>
                                 </li>
 
-                                <li class="steps @if($order->status == 'posted' || $order->status == 'received') active @elseif($order->status == 'processing') half-active @endif">
+                                <li class="steps @if($order->status == 'posted' || $order->status == 'received') active @elseif($order->status == 'prepared') half-active @endif">
                                     <span></span>
                                     <div></div>
                                     <p>
@@ -520,31 +520,33 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td>
+                            @if($order->address)
+                                <tr>
+                                    <td>
                                         <span class="info-property">
                                             آدرس تحویل:
                                         </span>
-                                    <span class="info-value">{{ engToPersian($order->address->address) }}</span>
-                                </td>
+                                        <span class="info-value">{{ engToPersian($order->address->address) }}</span>
+                                    </td>
 
-                                <td>
+                                    <td>
                                         <span class="info-property">
                                             تحویل گیرنده:
                                         </span>
-                                    <span class="info-value">{{ $order->address->name }}</span>
-                                </td>
+                                        <span class="info-value">{{ $order->address->name }}</span>
+                                    </td>
 
-                                <td>
+                                    <td>
                                         <span class="info-property">
                                             شماره تماس:
                                         </span>
-                                    <span class="info-value">{{ engToPersian($order->address->mobile) }}
-                                        @if($order->address->phone)
-                                            - {{ engToPersian($order->address->area_code . $order->address->phone) }}
-                                        @endif</span>
-                                </td>
-                            </tr>
+                                        <span class="info-value">{{ engToPersian($order->address->mobile) }}
+                                            @if($order->address->phone)
+                                                - {{ engToPersian($order->address->area_code . $order->address->phone) }}
+                                            @endif</span>
+                                    </td>
+                                </tr>
+                            @endif
 
                             </tbody>
 

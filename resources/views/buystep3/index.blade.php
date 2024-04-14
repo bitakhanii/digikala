@@ -557,7 +557,7 @@
                                 </span>
                                         <span class="toman">تومان</span>
                                         <span
-                                            class="price">{{ number_format(($product['final_price']) * $cart['number']) }}</span>
+                                            class="price">{{ number_format(($product['discount_amount']) * $cart['number']) }}</span>
                                     </div>
 
                                     <div class="final-price">

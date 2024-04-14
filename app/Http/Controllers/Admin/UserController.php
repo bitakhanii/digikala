@@ -98,7 +98,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'first_name' => ['required', 'min:3', 'max:50'],
-            'last_name' => ['required', 'min:3', 'max:100'],
+            'last_name' => ['nullable', 'min:3', 'max:100'],
             'mobile' => ['nullable',
                 function ($attribute, $value, $fail) {
                     $mobile = persianToEng($value);
@@ -106,7 +106,7 @@ class UserController extends Controller
                         $fail('شماره موبایل وارد شده نامعتبر می‌باشد.');
                     }
                 }],
-            'email' => ['required', 'regex:/(.+)@(.+)\.(.+)/i'],
+            'email' => ['required', 'regex:/(.+)@(.+)\.(.+)/i', @Rule::unique('users')->ignore($user->id)],
             'email_verify' => ['nullable', Rule::in([0, 1])],
         ]);
 

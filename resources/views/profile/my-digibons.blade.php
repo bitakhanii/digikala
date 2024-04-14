@@ -102,7 +102,7 @@
         <tr class="head">
             <td>ردیف</td>
             <td>کد</td>
-            <td>سفارش</td>
+            <td>مبلغ (تومان)</td>
             <td>تاریخ ثبت</td>
             <td>تاریخ انقضا</td>
             <td>اعتبار اولیه</td>
@@ -121,15 +121,13 @@
             <tr class="value">
                 <td>{{ engToPersian($i) }}</td>
                 <td>{{ $digibon->code }}</td>
-                <td>DKC-3227012</td>
-                <td>{{ engToPersian(jdate($digibon->created_at)->format('Y/m/d')) }}</td>
-                <td>{{ engToPersian(jdate($digibon->expired_at)->format('Y/m/d')) }}</td>
-                <td>{{ engToPersian($digibon->initial_credit) }}</td>
-                <td>{{ engToPersian($digibon->used) }}</td>
-                <td>{{ engToPersian($credit) }}</td>
-                <td>
-                    {{ engToPersian(digibonStatus($digibon->id)) }}
-                </td>
+                <td>{{ number_format($digibon->amount) }}</td>
+                <td>{{ jdate($digibon->created_at)->format('Y/m/d') }}</td>
+                <td>{{ jdate($digibon->expired_at)->format('Y/m/d') }}</td>
+                <td>{{ $digibon->initial_credit }}</td>
+                <td>{{ $digibon->used }}</td>
+                <td>{{ $credit }}</td>
+                <td>{{ digibonStatus($digibon->id) }}</td>
             </tr>
             @php
                 $i++;

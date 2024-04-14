@@ -222,7 +222,7 @@
                     }
 
                     //TODO set products Url
-                    productTag = '<li class="active"><a href="/product/' + value['id'] + '"><div class="right"><div class="image"><img src="/images/products/' + value['id'] + '/product-' + value['id'] + '.jpg"></div><div class="colors">' + colors + '</div>' + productTagScore + '</div><div class="left"><div class="title"><p class="english">' + enTitle + '</p><p class="persian">' + value['title'] + '</p></div><div class="description">' + productAttribute + '</div><div class="price">' + itpro(productPrice) + '</div><i class="cart-icon"></i><div class="details-icon"><span class="icon"><i></i><i></i><i></i></span><span class="text">جزئیات محصول</span></div></div></a></li>';
+                    productTag = '<li class="active"><a href="/product/' + value['id'] + '"><div class="right"><div class="image"><img src="/images/products/' + value['id'] + '/product-' + value['id'] + '.jpg"></div><div class="colors">' + colors + '</div>' + productTagScore + '</div><div class="left"><div class="title"><p class="english">' + enTitle + '</p><p class="persian">' + value['title'] + '</p></div><div class="description">' + productAttribute + '</div><div class="price">' + itpro(productPrice) + '</div><i class="cart-icon"></i><div class="details-icon"></span><span class="text">افزودن به سبد خرید</span></div></div></a></li>';
 
                     $('#products').find('ul').append(productTag);
                 })

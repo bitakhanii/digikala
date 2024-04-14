@@ -623,7 +623,6 @@
         function setAmountSession() {
 
             var payGateway = $('.pay-g.active').data('name');
-
             var url = '/orders/order-amount';
             var data = {payGateway};
 

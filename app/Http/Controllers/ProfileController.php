@@ -157,6 +157,7 @@ class ProfileController extends Controller
     /**
      * Delete the user's account.
      */
+    //TODO make delete account button
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [

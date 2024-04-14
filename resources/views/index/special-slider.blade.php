@@ -279,7 +279,7 @@ $specialProducts = \App\Models\Product::specialProducts();
 
                     <div class="description">
                         @if($product->attributes)
-                            @foreach($product->attributes()->where('filter', 1)->get()->take(3) as $attribute)
+                            @foreach($product->attributes()->get()->take(3) as $attribute)
                                 <p>{{ $attribute->title.' : '.$attribute->pivot->value->value }}</p>
                             @endforeach
                         @endif

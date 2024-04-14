@@ -192,7 +192,7 @@
                                     <div class="form-group">
                                         <label class="ml-4 col-2 attr-label">{{ $attribute->title }}</label>
                                         <select
-                                            class="value-select col-3" name="attribute-{{ $attribute->id }}">
+                                            class="value-select col-5" name="attribute-{{ $attribute->id }}">
                                             <option value="">انتخاب کنید</option>
                                             @foreach($attribute->values as $value)
                                                 <option value="{{ $value->id }}"

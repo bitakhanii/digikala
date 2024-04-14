@@ -7,7 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class SearchController extends Controller
+class /**/SearchController extends Controller
 {
     public function categorySearch(Category $category)
     {
@@ -77,7 +77,7 @@ class SearchController extends Controller
                     $product->score = productScore($product->id);
                 }
             }, 'attributes' => function ($query) {
-                $query->where('filter', 1)->orderBy('id', 'desc')->take(6);
+                $query->orderBy('id', 'desc')->take(6);
             }]);
 
             if ($product->attributes) {

@@ -166,7 +166,7 @@
                         })
                     } else {
                         $(tag).parents('.review').slideUp();
-                        $(tag).parents('.table').find('.tt').text(msg[1]);
+                        $(tag).parents('.review').prev().find('.tt').text(msg[1]);
                         reviewText.text(msg[0]);
                         Swal.fire({
                             text: "با موفقیت ویرایش شد.",

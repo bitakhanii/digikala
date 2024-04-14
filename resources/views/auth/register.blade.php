@@ -266,7 +266,6 @@
                         <div class="terms check1">
                             <span class="check-box checked"></span>
                             <input type="checkbox" checked name="terms" onclick="checkBox(this , 'check1');">
-                            <x-input-error :messages="$errors->get('terms')" class="error"/>
                             <p>
                                 <a>
                                     حریم خصوصی
@@ -278,6 +277,7 @@
                                 استفاده از سرویس های سایت دیجی کالا را مطالعه نموده و با کلیه مواردآن موافقم.
                             </p>
                         </div>
+                        <x-input-error :messages="$errors->get('terms')" class="error"/>
 
                         <div class="terms check2" style="margin-bottom: 20px;">
 

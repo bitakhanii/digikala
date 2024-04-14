@@ -43,9 +43,7 @@ class Profile extends Model
         foreach ($favorites as $key => $favorite) {
             $products = Product::query();
             $product_title = $products->where('id', $favorite['product_id'])->pluck('title');
-            $image = $products->where('id', $favorite['product_id'])->pluck('image');
             $favorites[$key]['product_title'] = $product_title;
-            $favorites[$key]['image'] = $image;
         }
 
         return $favorites;
